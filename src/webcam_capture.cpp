@@ -60,8 +60,7 @@ int main(int argc, char *argv[])
 		std::cout << "image depth: " << image.depth() << std::endl; 
 		std::cout << "num channels: " << image.channels() << std::endl; 
 		px_value = image.at<cv::Scalar_<unsigned char> >(image.rows/2, image.cols/2, 0); 
-		std::cout << "central pixel value (BGR): " 
-					<< (int)px_value[0] << "," << (int)px_value[1] << "," << (int)px_value[2] << std::endl; 
+		std::cout << "central pixel value (BGR): " << (int)px_value[0] << "," << (int)px_value[1] << "," << (int)px_value[2] << std::endl; 
 		
 		//Waits 1 millisecond to check if a key has been pressed. If so, breaks the loop. Otherwise continues.
         if(cv::waitKey(1) >= 0) break;

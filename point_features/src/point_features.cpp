@@ -71,12 +71,12 @@ int main(int argc, char *argv[])
         
         //draw points on the image
         cv::drawKeypoints( image, point_set, image, 255, cv::DrawMatchesFlags::DEFAULT );      
-        
-        //show image
-        cv::imshow("Output Window", image);
-        
+                
     //********************************************************************
 		
+        //show image
+        cv::imshow("Output Window", image);
+
 		//Waits 1 millisecond to check if a key has been pressed. If so, breaks the loop. Otherwise continues.
         if(cv::waitKey(1) >= 0) break;
     }   

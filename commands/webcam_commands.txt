@@ -1,0 +1,4 @@
+//useful commands to know params about your webcams
+
+$ sudo udevadm info --query=all --name=/dev/video1
+$ v4l2-ctl --list-formats-ext 

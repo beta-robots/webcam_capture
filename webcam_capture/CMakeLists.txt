@@ -16,8 +16,8 @@ ADD_EXECUTABLE(${PROJECT_NAME} src/webcam_capture.cpp)
 #Link with libraries
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${OpenCV_LIBS})
 
-# Setting this prefix will be used by INSTALL commands in next CMakeLists
-SET(CMAKE_INSTALL_PREFIX /usr/local)
-
-#install
-INSTALL(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
+# # Setting this prefix will be used by INSTALL commands in next CMakeLists
+# SET(CMAKE_INSTALL_PREFIX /usr/local)
+# 
+# #install
+# INSTALL(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)

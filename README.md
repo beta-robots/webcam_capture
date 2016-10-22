@@ -1,2 +1,2 @@
-# webcam_opencv
-Webcam capture and playing using OpenCV
+# webcam_capture
+Just webcam capture

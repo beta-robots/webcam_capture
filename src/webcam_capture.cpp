@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
     cv::VideoCapture camera; //OpenCV video capture object
     cv::Mat image; //OpenCV image object
 	int cam_id; //camera id . Associated to device number in /dev/videoX
-	cv::Scalar_<unsigned char> px_value; //pixel value (4-element vector)
 	int user_key; //user pressed key to quit
+	cv::Vec3b pixel_intensity; //pixel RGB intensity
 
 	//check user args
 	switch(argc)
@@ -50,10 +50,22 @@ int main(int argc, char *argv[])
             cv::waitKey();
         }
 
+		// get intensity of the central pixel. Ordered as BGR
+		pixel_intensity = image.at<cv::Vec3b>(image.rows/2, image.cols/2);
+		std::cout << "RGB: " 	<< (unsigned int)pixel_intensity[2] << ","
+								<< (unsigned int)pixel_intensity[1] << ","
+								<< (unsigned int)pixel_intensity[0] << std::endl;
+
+		// manipulate the central pixel value. Set it as blue
+		pixel_intensity[0] = 255;
+		pixel_intensity[1] = 0;
+		pixel_intensity[2] = 0;
+		image.at<cv::Vec3b>(image.rows/2, image.cols/2) = pixel_intensity;
+
         //show image in a window
         cv::imshow("Output Window", image);
 
 		//Waits 30 millisecond to check if 'q' key has been pressed. If so, breaks the loop. Otherwise continues.
-    	if( (unsigned char)(cv::waitKey(30) & 0xff) == 'q' ) break; 
+    	if( (unsigned char)(cv::waitKey(30) & 0xff) == 'q' ) break;
     }
 }
